@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.abhijit.shoppingcartservice.BookDto;
 
 @RibbonClient(name = "book-service")
-@FeignClient(name = "book-service")
+@FeignClient(name = "zuul-api-gateway")
 public interface BookServiceProxy {
 
-	@GetMapping(value = "/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/book-service/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public BookDto findById(@PathVariable String id);
 	
 }
